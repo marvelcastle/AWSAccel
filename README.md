@@ -1,3 +1,3 @@
 # AWSAccel
-# This YAML file will create a BPC with two subnets, route and IGW.
+# This YAML file will create a VPC with two subnets, route to the Internet and an IGW.
 # It is part of the AWS acceleration course
