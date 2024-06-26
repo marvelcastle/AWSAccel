@@ -26,16 +26,6 @@ Resources:
         - 0
         - !GetAZs ''
 
-  PublicSubnet2:
-    Type: AWS::EC2::Subnet
-    Properties:
-      VpcId: !Ref MyVPC
-      CidrBlock: 10.YOUR-CIDR.17.0/24
-      MapPublicIpOnLaunch: true
-      AvailabilityZone: !Select
-        - 1
-        - !GetAZs ''
-
   InternetGateway:
     Type: AWS::EC2::InternetGateway
 
@@ -64,12 +54,6 @@ Resources:
       SubnetId: !Ref PublicSubnet1
       RouteTableId: !Ref PublicRouteTable
 
-  Subnet2RouteTableAssociation:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      SubnetId: !Ref PublicSubnet2
-      RouteTableId: !Ref PublicRouteTable
-
 Outputs:
   VpcId:
     Value: !Ref MyVPC
@@ -77,9 +61,6 @@ Outputs:
   PublicSubnet1Id:
     Value: !Ref PublicSubnet1
     Description: ID of the first public subnet
-  PublicSubnet2Id:
-    Value: !Ref PublicSubnet2
-    Description: ID of the second public subnet
   PublicRouteTableId:
     Value: !Ref PublicRouteTable
     Description: ID of the public route table
