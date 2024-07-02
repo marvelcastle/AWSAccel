@@ -9,18 +9,18 @@ Resources:
   MyVPC:
     Type: AWS::EC2::VPC
     Properties:
-      CidrBlock: 10.YOUR-CIDR.16.0/20
+      CidrBlock: 10.17.16.0/20
       EnableDnsSupport: true
       EnableDnsHostnames: true
       Tags:
         - Key: Name
-          Value: Elastic-Beanstalk-YOUR-ID
+          Value: Elastic-Beanstalk-mcastillo
 
   PublicSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref MyVPC
-      CidrBlock: 10.YOUR-CIDR.16.0/24
+      CidrBlock: 10.17.16.0/24
       MapPublicIpOnLaunch: true
       AvailabilityZone: !Select
         - 0
